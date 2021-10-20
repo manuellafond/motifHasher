@@ -1,0 +1,6 @@
+﻿  BitString.cpp
+  IntegerPairVector.cpp
+  SequenceTests.cpp
+C:\Users\Manue\OneDrive - USherbrooke\Bureau\tmp\sequences\SequenceTests\SequenceTests\SequenceTests.cpp(328,38): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+  Generating Code...
+  SequenceTests.vcxproj -> C:\Users\Manue\OneDrive - USherbrooke\Bureau\tmp\sequences\SequenceTests\x64\Debug\SequenceTests.exe
