@@ -263,10 +263,11 @@ size_t popcount64(uint64_t x)
 /*
 This is the f-scoring function from the paper!
 */
-double getScore(uint64_t motif, size_t occ1, size_t occ2)
+double getScore(pair<uint64_t, size_t> motif, size_t occ1, size_t occ2)
 {
-    size_t motifLength = popcount64(motif);
-    return motifLength * min(occ1, occ2) / max(occ1, occ2);
+    //size_t motifLength = popcount64(motif);
+
+    return motif.second * min(occ1, occ2) / max(occ1, occ2);
 }
 
 
@@ -279,23 +280,23 @@ double getScore(uint64_t motif, size_t occ1, size_t occ2)
 /*
 Calculates score of query versus all sequences in seqs.  Precomputed motifsTable is required.
 */
-void computeScores(BitString& query, vector<BitString>& seqs, boost::container::map<uint64_t, IntegerPairVector>& motifsTable, size_t min, size_t max)
+void computeScores(BitString& query, vector<BitString>& seqs, boost::container::map< pair<uint64_t, size_t>, IntegerPairVector>& motifsTable, size_t min, size_t max)
 {
-    boost::container::map < uint64_t, uint64_t > occurrences;
+    boost::container::map < pair<uint64_t, size_t>, uint64_t > occurrences;
 
     for (size_t len = min; len <= max; len += 2)
     {
         for (size_t pos = 0; pos < query.size(); pos += 2)
         {
             uint64_t substr = query.getChunk(pos, len);
-
-            if (occurrences.find(substr) == occurrences.end())
+            pair<uint64_t, size_t> key = make_pair(substr, len);
+            if (occurrences.find(key) == occurrences.end())
             {
-                occurrences[substr] = 1;
+                occurrences[key] = 1;
             }
             else
             {
-                occurrences[substr] += 1;
+                occurrences[key] += 1;
             }
         }
     }
@@ -310,10 +311,11 @@ void computeScores(BitString& query, vector<BitString>& seqs, boost::container::
 
     for (auto it = occurrences.begin(); it != occurrences.end(); ++it)
     {
-        uint64_t substr = it->first;
+        pair<uint64_t, size_t> key = it->first;
+        
         uint64_t occ1 = it->second;
 
-        IntegerPairVector vec = motifsTable[substr];
+        IntegerPairVector vec = motifsTable[key];
 
         for (size_t i = 0; i < vec.size(); ++i)
         {
@@ -321,7 +323,7 @@ void computeScores(BitString& query, vector<BitString>& seqs, boost::container::
             uint64_t occ2 = vec.getVal2(i);
 
             
-            scores[seqnum].second += getScore(substr, occ1, occ2);
+            scores[seqnum].second += getScore(key, occ1, occ2);
         }
     }
 
@@ -355,16 +357,16 @@ We use a boost map because it is more space efficient than the std::map.
 In the returned map, keys are the motifs represented as bitstrings, which must fit in 64 bits.  
 Values are IntegerPairVectors that stores pairs.  First pair value = sequence index, second pair value = nb occurrences.
 */
-boost::container::map<uint64_t, IntegerPairVector> buildMotifTable(vector<BitString> &seqs, size_t min, size_t max) //, unordered_map<bitstring, map<int, int>> &dest)
+boost::container::map<pair<uint64_t, size_t>, IntegerPairVector> buildMotifTable(vector<BitString> &seqs, size_t min, size_t max) //, unordered_map<bitstring, map<int, int>> &dest)
 {
     //boost::container::map<bitstring, NumberPairArray> dest;
      
     //ublas::mapped_matrix<unsigned char> matrix(1048576, seqs.size());
 
-    boost::container::map<uint64_t, IntegerPairVector> dest;  //key = motif, value = strings that have it
+    boost::container::map<pair<uint64_t, size_t>, IntegerPairVector> dest;  //key = motif, value = strings that have it
 
-    uint64_t nbbits1 = 18;
-    uint64_t nbbits2 = 16;
+    uint64_t nbbits1 = 15;
+    uint64_t nbbits2 = 18;
 
 
     for (size_t seqindex = 0; seqindex < seqs.size(); ++seqindex)
@@ -378,31 +380,33 @@ boost::container::map<uint64_t, IntegerPairVector> buildMotifTable(vector<BitStr
             for (size_t pos = 0; pos < str.size(); pos += 2)
             {
                 uint64_t substr = str.getChunk(pos, len);
+                pair<uint64_t, size_t> key = make_pair(substr, len);
                 
-                
-                if (dest.find(substr) == dest.end())
+                if (dest.find(key) == dest.end())
                 {
-                    dest[substr] = IntegerPairVector(nbbits1, nbbits2);
-                    dest[substr].add(seqindex, 1);
+                    dest[key] = IntegerPairVector(nbbits1, nbbits2);
+                    dest[key].add(seqindex, 1);
                 }
                 else
                 {
                     //since sequences are handled in order, last entry must contain it
-                    size_t lastIndex = dest[substr].size() - 1;
-                    uint64_t lastval = dest[substr].getVal1(lastIndex);
+                    size_t lastIndex = dest[key].size() - 1;
+                    uint64_t lastval = dest[key].getVal1(lastIndex);
                     if (lastval != seqindex)
                     {
-                        dest[substr].add(seqindex, 1);
+                        dest[key].add(seqindex, 1);
                     }
                     else
                     {
-                        uint64_t newval = dest[substr].getVal2(lastIndex) + 1;
+                        uint64_t newval = dest[key].getVal2(lastIndex) + 1;
 
                         if (newval >= pow(2, nbbits2))
                         {
                             cout << "ERROR : occurrence number above " << pow(2, nbbits2) << endl;
+                            cout << seqs[seqindex].ToString() << endl;
+                            cout << " stop now" << endl;
                         }
-                        dest[substr].setVal2(lastIndex, newval);
+                        dest[key].setVal2(lastIndex, newval);
                     }
                 }
             }
@@ -439,7 +443,9 @@ int main()
 
     //string infilename = "C:\\Users\\lafm2722\\OneDrive - USherbrooke\\Bureau\\tmp\\sequences\\GRCh38_latest_rna.fna";
     //string infilename = "C:\\Users\\Manue\\OneDrive - USherbrooke\\Bureau\\tmp\\sequences\\GRCh38_latest_rna.fna";
-    string infilename = "C:\\Users\\Manuel\\OneDrive - USherbrooke\\Bureau\\tmp\\sequences\\GRCh38_latest_rna.fna";
+    //string infilename = "C:\\Users\\Manuel\\OneDrive - USherbrooke\\Bureau\\tmp\\sequences\\GRCh38_latest_rna.fna";
+
+    string infilename = "C:\\Users\\Manue\\OneDrive - USherbrooke\\Bureau\\tmp\\sequences\\homo_sapiens.fasta";
     
     vector<BitString> seqs;
 

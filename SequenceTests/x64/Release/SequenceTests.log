@@ -1,1 +1,12 @@
-﻿  SequenceTests.vcxproj -> C:\Users\Manue\OneDrive - USherbrooke\Bureau\tmp\sequences\SequenceTests\x64\Release\SequenceTests.exe
+﻿  SequenceTests.cpp
+C:\Users\Manue\OneDrive - USherbrooke\Bureau\tmp\sequences\SequenceTests\SequenceTests\SequenceTests.cpp(270,43): warning C4244: 'return': conversion from '_Ty2' to 'double', possible loss of data
+          with
+          [
+              _Ty2=size_t
+          ]
+C:\Users\Manue\OneDrive - USherbrooke\Bureau\tmp\sequences\SequenceTests\SequenceTests\SequenceTests.cpp(461,38): warning C4267: '+=': conversion from 'size_t' to 'int', possible loss of data
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 915 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  SequenceTests.vcxproj -> C:\Users\Manue\OneDrive - USherbrooke\Bureau\tmp\sequences\SequenceTests\x64\Release\SequenceTests.exe
