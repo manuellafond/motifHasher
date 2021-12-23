@@ -1,0 +1,11 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(39,5): warning MSB4211: The property "IntermediateOutputPath" is being set to a value for the first time, but it was already consumed at "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets (38,5)".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Microsoft\VC\v160\Microsoft.BuildSteps.Targets(30,5): warning MSB4211: The property "DebugType" is being set to a value for the first time, but it was already consumed at "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Microsoft\VC\v160\Microsoft.BuildSteps.Targets (29,5)".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(372,5): warning MSB4211: The property "CleanFile" is being set to a value for the first time, but it was already consumed at "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets (38,5)".
+  time_hash_map.cc
+C:\Users\Manue\OneDrive - USherbrooke\Bureau\tmp\sequences\SequenceTests\SequenceTests\sparsehash-master\src\time_hash_map.cc(106,23): error C2039: 'unordered_map': is not a member of 'stdext'
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Tools\MSVC\14.29.30037\include\iterator(1363): message : see declaration of 'stdext'
+C:\Users\Manue\OneDrive - USherbrooke\Bureau\tmp\sequences\SequenceTests\SequenceTests\sparsehash-master\src\time_hash_map.cc(106,1): error C2873: 'unordered_map': symbol cannot be used in a using-declaration
+C:\Users\Manue\OneDrive - USherbrooke\Bureau\tmp\sequences\SequenceTests\SequenceTests\sparsehash-master\src\time_hash_map.cc(155,44): error C2143: syntax error: missing ',' before '<'
+C:\Users\Manue\OneDrive - USherbrooke\Bureau\tmp\sequences\SequenceTests\SequenceTests\sparsehash-master\src\time_hash_map.cc(159): message : see reference to class template instantiation 'EasyUseHashMap<K,V,H>' being compiled
+  port.cc
+  Generating Code...

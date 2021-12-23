@@ -1,0 +1,77 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets(39,5): warning MSB4211: The property "IntermediateOutputPath" is being set to a value for the first time, but it was already consumed at "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets (38,5)".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Microsoft\VC\v160\Microsoft.BuildSteps.Targets(30,5): warning MSB4211: The property "DebugType" is being set to a value for the first time, but it was already consumed at "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Microsoft\VC\v160\Microsoft.BuildSteps.Targets (29,5)".
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(372,5): warning MSB4211: The property "CleanFile" is being set to a value for the first time, but it was already consumed at "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Microsoft\VC\v160\Microsoft.CppCommon.targets (38,5)".
+  sparsetable_unittest.cc
+C:\Users\Manue\OneDrive - USherbrooke\Bureau\tmp\sequences\SequenceTests\SequenceTests\sparsehash-master\src\sparsehash\internal\hashtable-common.h(179,1): error C2065: 'unused': undeclared identifier
+C:\Users\Manue\OneDrive - USherbrooke\Bureau\tmp\sequences\SequenceTests\SequenceTests\sparsehash-master\src\sparsehash\sparsetable(1659): message : see reference to function template instantiation 'bool google::sparsehash_internal::write_bigendian_number<OUTPUT,IntType>(OUTPUT *,IntType,size_t)' being compiled
+          with
+          [
+              OUTPUT=FILE,
+              IntType=google::sparsetable<int,48,google::libc_allocator_with_realloc<int>>::MagicNumberType
+          ]
+C:\Users\Manue\OneDrive - USherbrooke\Bureau\tmp\sequences\SequenceTests\SequenceTests\sparsehash-master\src\sparsehash\sparsetable(1689): message : see reference to function template instantiation 'bool google::sparsetable<int,48,google::libc_allocator_with_realloc<T>>::write_32_or_64<OUTPUT,google::sparsetable<T,48,google::libc_allocator_with_realloc<T>>::MagicNumberType>(OUTPUT *,IntType)' being compiled
+          with
+          [
+              T=int,
+              OUTPUT=FILE,
+              IntType=google::sparsetable<int,48,google::libc_allocator_with_realloc<int>>::MagicNumberType
+          ]
+C:\Users\Manue\OneDrive - USherbrooke\Bureau\tmp\sequences\SequenceTests\SequenceTests\sparsehash-master\src\sparsehash\sparsetable(1689): message : see reference to function template instantiation 'bool google::sparsetable<int,48,google::libc_allocator_with_realloc<T>>::write_32_or_64<OUTPUT,google::sparsetable<T,48,google::libc_allocator_with_realloc<T>>::MagicNumberType>(OUTPUT *,IntType)' being compiled
+          with
+          [
+              T=int,
+              OUTPUT=FILE,
+              IntType=google::sparsetable<int,48,google::libc_allocator_with_realloc<int>>::MagicNumberType
+          ]
+C:\Users\Manue\OneDrive - USherbrooke\Bureau\tmp\sequences\SequenceTests\SequenceTests\sparsehash-master\src\sparsetable_unittest.cc(358): message : see reference to function template instantiation 'bool google::sparsetable<int,48,google::libc_allocator_with_realloc<T>>::write_metadata<FILE>(OUTPUT *) const' being compiled
+          with
+          [
+              T=int,
+              OUTPUT=FILE
+          ]
+C:\Users\Manue\OneDrive - USherbrooke\Bureau\tmp\sequences\SequenceTests\SequenceTests\sparsehash-master\src\sparsetable_unittest.cc(358): message : see reference to function template instantiation 'bool google::sparsetable<int,48,google::libc_allocator_with_realloc<T>>::write_metadata<FILE>(OUTPUT *) const' being compiled
+          with
+          [
+              T=int,
+              OUTPUT=FILE
+          ]
+C:\Users\Manue\OneDrive - USherbrooke\Bureau\tmp\sequences\SequenceTests\SequenceTests\sparsehash-master\src\sparsehash\internal\hashtable-common.h(179,1): error C3861: '__attribute__': identifier not found
+C:\Users\Manue\OneDrive - USherbrooke\Bureau\tmp\sequences\SequenceTests\SequenceTests\sparsehash-master\src\sparsehash\internal\hashtable-common.h(179,1): error C2144: syntax error: 'google::SparsehashCompileAssert<true>' should be preceded by ';'
+C:\Users\Manue\OneDrive - USherbrooke\Bureau\tmp\sequences\SequenceTests\SequenceTests\sparsehash-master\src\sparsehash\internal\hashtable-common.h(166,1): error C2065: 'unused': undeclared identifier
+C:\Users\Manue\OneDrive - USherbrooke\Bureau\tmp\sequences\SequenceTests\SequenceTests\sparsehash-master\src\sparsehash\sparsetable(1673): message : see reference to function template instantiation 'bool google::sparsehash_internal::read_bigendian_number<INPUT,google::sparsetable<int,48,google::libc_allocator_with_realloc<T>>::MagicNumberType>(INPUT *,IntType *,size_t)' being compiled
+          with
+          [
+              INPUT=FILE,
+              T=int,
+              IntType=google::sparsetable<int,48,google::libc_allocator_with_realloc<int>>::MagicNumberType
+          ]
+C:\Users\Manue\OneDrive - USherbrooke\Bureau\tmp\sequences\SequenceTests\SequenceTests\sparsehash-master\src\sparsehash\sparsetable(1702): message : see reference to function template instantiation 'bool google::sparsetable<int,48,google::libc_allocator_with_realloc<T>>::read_32_or_64<INPUT,unsigned int>(INPUT *,IntType *)' being compiled
+          with
+          [
+              T=int,
+              INPUT=FILE,
+              IntType=unsigned int
+          ]
+C:\Users\Manue\OneDrive - USherbrooke\Bureau\tmp\sequences\SequenceTests\SequenceTests\sparsehash-master\src\sparsehash\sparsetable(1702): message : see reference to function template instantiation 'bool google::sparsetable<int,48,google::libc_allocator_with_realloc<T>>::read_32_or_64<INPUT,unsigned int>(INPUT *,IntType *)' being compiled
+          with
+          [
+              T=int,
+              INPUT=FILE,
+              IntType=unsigned int
+          ]
+C:\Users\Manue\OneDrive - USherbrooke\Bureau\tmp\sequences\SequenceTests\SequenceTests\sparsehash-master\src\sparsetable_unittest.cc(367): message : see reference to function template instantiation 'bool google::sparsetable<int,48,google::libc_allocator_with_realloc<T>>::read_metadata<FILE>(INPUT *)' being compiled
+          with
+          [
+              T=int,
+              INPUT=FILE
+          ]
+C:\Users\Manue\OneDrive - USherbrooke\Bureau\tmp\sequences\SequenceTests\SequenceTests\sparsehash-master\src\sparsetable_unittest.cc(367): message : see reference to function template instantiation 'bool google::sparsetable<int,48,google::libc_allocator_with_realloc<T>>::read_metadata<FILE>(INPUT *)' being compiled
+          with
+          [
+              T=int,
+              INPUT=FILE
+          ]
+C:\Users\Manue\OneDrive - USherbrooke\Bureau\tmp\sequences\SequenceTests\SequenceTests\sparsehash-master\src\sparsehash\internal\hashtable-common.h(166,1): error C3861: '__attribute__': identifier not found
+C:\Users\Manue\OneDrive - USherbrooke\Bureau\tmp\sequences\SequenceTests\SequenceTests\sparsehash-master\src\sparsehash\internal\hashtable-common.h(166,1): error C2144: syntax error: 'google::SparsehashCompileAssert<true>' should be preceded by ';'
+  port.cc
+  Generating Code...
