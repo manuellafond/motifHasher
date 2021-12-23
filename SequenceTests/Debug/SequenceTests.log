@@ -1,4 +1,0 @@
-﻿  SequenceTests.cpp
-C:\Users\Manue\OneDrive - USherbrooke\Bureau\tmp\sequences\SequenceTests\SequenceTests\SequenceTests.cpp(163,23): warning C4018: '<': signed/unsigned mismatch
-C:\Users\Manue\OneDrive - USherbrooke\Bureau\tmp\sequences\SequenceTests\SequenceTests\SequenceTests.cpp(182,54): warning C4018: '<=': signed/unsigned mismatch
-  SequenceTests.vcxproj -> C:\Users\Manue\OneDrive - USherbrooke\Bureau\tmp\sequences\SequenceTests\Debug\SequenceTests.exe
